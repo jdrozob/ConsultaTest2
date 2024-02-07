@@ -1,0 +1,59 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline" floatLabel="always">
+            <mat-label>Documento de identidad</mat-label>
+            <input matInput placeholder="Ingresa el documento de identidad" formControlName="firstName">
+            @if (addressForm.controls['firstName'].hasError('required')) {
+              <mat-error>First name is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline" floatLabel="always">
+            <mat-label>Socio</mat-label>
+            <input matInput placeholder="Busca un socio" formControlName="lastName">
+            @if (addressForm.controls['lastName'].hasError('required')) {
+              <mat-error>Last name is <strong>required</strong></mat-error>
+            }
+            <button matSuffix mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+              <mat-icon matSuffix>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <button mat-stroked-button color="primary" type="reset">NUEVA CONSULTA</button>
+        </div>
+        <div class="col">
+          <button mat-stroked-button color="primary" type="submit">CONSULTAR</button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+<div class="col"></div>
+</form>
