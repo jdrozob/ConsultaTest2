@@ -14,37 +14,22 @@
         <div class="col">
           <mat-form-field class="full-width" appearance="outline" floatLabel="always">
             <mat-label>Socio</mat-label>
-            <input matInput placeholder="Busca un socio" formControlName="lastName">
+            <input placeholder="Busca un socio" formControlName="lastName" matInput [formControl]="myControl" [matAutocomplete]="auto">
             @if (addressForm.controls['lastName'].hasError('required')) {
               <mat-error>Last name is <strong>required</strong></mat-error>
             }
-            <button matSuffix mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-              <mat-icon matSuffix>search</mat-icon>
-            </button>
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              @for (option of filteredOptions | async; track option) {
+                <mat-option [value]="option">{{option}}</mat-option>
+              }
+            </mat-autocomplete>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
         <div class="col">
           <button mat-stroked-button color="primary" type="reset">NUEVA CONSULTA</button>
         </div>
@@ -54,6 +39,4 @@
       </div>
     </mat-card-actions>
   </mat-card>
-
-<div class="col"></div>
 </form>

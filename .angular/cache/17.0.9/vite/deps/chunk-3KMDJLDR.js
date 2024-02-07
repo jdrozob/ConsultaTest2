@@ -51,6 +51,19 @@ function coerceCssPixelValue(value) {
 function coerceElement(elementOrRef) {
   return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
 }
+function coerceStringArray(value, separator = /\s+/) {
+  const result = [];
+  if (value != null) {
+    const sourceValues = Array.isArray(value) ? value : `${value}`.split(separator);
+    for (const sourceValue of sourceValues) {
+      const trimmedString = `${sourceValue}`.trim();
+      if (trimmedString) {
+        result.push(trimmedString);
+      }
+    }
+  }
+  return result;
+}
 
 // node_modules/@angular/cdk/fesm2022/platform.mjs
 var hasV8BreakIterator;
@@ -493,9 +506,10 @@ export {
   coerceArray,
   coerceCssPixelValue,
   coerceElement,
+  coerceStringArray,
   LayoutModule,
   MediaMatcher,
   BreakpointObserver,
   Breakpoints
 };
-//# sourceMappingURL=chunk-HDIES5YP.js.map
+//# sourceMappingURL=chunk-3KMDJLDR.js.map
